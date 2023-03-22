@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const SideBar = () => {
   return (
-    <aside className="h-screen w-80 hidden lg:block bg-white">
+    <aside className="h-screen w-80 hidden xl:block bg-white fixed">
       <h2 className="text-center text-black text-2xl m-4"><b>Blog</b>App</h2>
       <hr />
       

@@ -1,14 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { faCopyright } from '@fortawesome/free-regular-svg-icons'
-import { Article } from './Article'
-import { Header } from './Header'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { Article, Header, Footer } from './';
 
 export const MainBlog = () => {
   return (
-    <div className="w-full flex flex-col">
-      
+    <div className="w-full flex flex-col xl:ml-80">
       <Header />
 
       <main className="flex flex-col flex-1 bg-gray-800 w-full py-8">
@@ -19,13 +15,11 @@ export const MainBlog = () => {
 
         <Article key="1"/>
         <Article key="2"/>
+        <Article key="3"/>
 
       </main>
 
-      <footer className="bg-gray-900 w-full flex justify-between p-4 text-white">
-        <p>Todos los Derechos Reservados <FontAwesomeIcon icon={ faCopyright } />{ new Date().getFullYear() }</p>
-        <p><b>Blog</b>App</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
