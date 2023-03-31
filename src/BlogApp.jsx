@@ -1,13 +1,7 @@
-import { MainBlog, SideBar } from './blog/components'
+import { AppRouter } from './routes/AppRouter'
 
 export const BlogApp = () => {
   return (
-   <div className="h-screen flex">
-
-    <SideBar />
-
-    <MainBlog />
-
-   </div>
+    <AppRouter />
   )
 }
