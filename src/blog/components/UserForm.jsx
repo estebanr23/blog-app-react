@@ -2,8 +2,8 @@
 export const UserForm = () => {
   return (
     <div className="bg-white text-black m-8 p-8 rounded-lg">
-        <h2 className="text-center">Agregar Usuario</h2>
-        <form action="#" className="flex flex-col gap-4">
+        <h2 className="text-center mb-4">Agregar Usuario</h2>
+        <form action="#" className="flex flex-col gap-4 md:grid md:grid-cols-2">
             <div className="flex flex-col">
                 <label htmlFor="name">Nombre</label>
                 <input type="text" name="name" className="border border-slate-600 rounded-lg w-full py-1 px-2" placeholder="Nombre" />
@@ -34,7 +34,9 @@ export const UserForm = () => {
                 </select>
             </div>
 
-            <button className="p-2 rounded-lg bg-green-600 text-white hover:bg-green-400">Guardar</button>
+            <div className="md:col-span-2">
+                <button className="p-2 rounded-lg bg-green-600 text-white hover:bg-green-400 px-10 py-2 block m-auto">Guardar</button>
+            </div>
   
         </form>
     </div>

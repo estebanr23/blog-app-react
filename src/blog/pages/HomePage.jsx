@@ -3,7 +3,7 @@ import { ArticleView } from '../views/ArticleView';
 import { NothingSelectedArticle } from '../views/NothingSelectedArticle';
 
 export const HomePage = () => {
-    const article = false;
+    const article = true;
   return (
     <Layout>
       {
