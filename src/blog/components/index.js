@@ -1,4 +1,4 @@
-export * from './SideBar';
+export * from './Sidebar';
 export * from './Article';
 export * from './Header';
 export * from './Footer';

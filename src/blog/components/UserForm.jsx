@@ -26,8 +26,8 @@ export const UserForm = () => {
 
             <div className="flex flex-col">
                 <label htmlFor="area">Area</label>
-                <select name="area" className="border border-slate-600 rounded-lg w-full py-1 px-2">
-                    <option value="" disabled selected>Seleccionar Area</option>
+                <select name="area" defaultValue="" className="border border-slate-600 rounded-lg w-full py-1 px-2">
+                    <option value="" disabled>Seleccionar Area</option>
                     <option value="1">Administracion</option>
                     <option value="2">Informatica</option>
                     <option value="3">Posventas</option>
