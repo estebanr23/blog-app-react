@@ -2,14 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { showSidebar } from '../../store/app/appSlice';
+import { startLogout } from '../../store/auth';
 
 export const Header = () => {
 
+  const { activeSidebar } = useSelector( state => state.app );
   const dispatch = useDispatch();
-  const { activeSidebar } = useSelector( state => state.app )
 
   const toggleSidebar = () => {
     dispatch( showSidebar() );
+  }
+
+  const handleLogout = () => {
+    dispatch( startLogout() );
   }
 
   return (
@@ -21,7 +26,7 @@ export const Header = () => {
                 <span className="border border-white w-full"></span>
             </div>
         </button>
-        <a href="#" className="hover:cursor-pointer underline hover:text-slate-600"><span className="mr-2">Cerrar Sesión</span><FontAwesomeIcon icon={ faCircleUser } /></a>
+        <button onClick={ handleLogout } className="hover:cursor-pointer underline hover:text-slate-600"><span className="mr-2">Cerrar Sesión</span><FontAwesomeIcon icon={ faCircleUser } /></button>
     </header>
   )
 }

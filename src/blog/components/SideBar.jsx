@@ -2,6 +2,7 @@ import { faBook, faCar, faDatabase, faGear, faKey, faTimes, faUser, faUsers } fr
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch, useSelector } from 'react-redux'
 import { hiddeSidebar } from '../../store/app/appSlice';
+import { Link } from 'react-router-dom';
 
 export const Sidebar = () => {
 
@@ -26,27 +27,33 @@ export const Sidebar = () => {
         <hr />
         
         <ul>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faUsers } /> General</li>
-            </a>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faBook } /> Administración</li>
-            </a>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faDatabase } /> Informatica</li>
-            </a>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faKey } /> Ventas Comerciales</li>
-            </a>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faCar } /> PosVentas</li>
-            </a>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faGear } /> Parametros</li>
-            </a>
-            <a href="#" className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-            <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faUser } /> Usuarios</li>
-            </a>
+            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faUsers } /> General</li>
+            </Link>
+
+            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faBook } /> Administración</li>
+            </Link>
+
+            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faDatabase } /> Informatica</li>
+            </Link>
+
+            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faKey } /> Ventas Comerciales</li>
+            </Link>
+
+            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faCar } /> PosVentas</li>
+            </Link>
+
+            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faGear } /> Parametros</li>
+            </Link>
+
+            <Link to={'/users'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faUser } /> Usuarios</li>
+            </Link>
         </ul>
     </aside>
   )
