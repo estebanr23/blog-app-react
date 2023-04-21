@@ -31,3 +31,17 @@ export const startLogout = () => {
         return dispatch( onLogout() );
     }
 }
+
+export const startRegister = (name, email, password) => {
+    return async() => {
+
+        try {
+            await blogApi.post('/auth/register', { name, email, password });
+            //TODO: Mostrar mensaje de exito al guardar usuario
+        } catch (error) {
+            console.log(error.response.data.errors);
+            //TODO: Mostrar mensaje de error al guardar usuario
+        }
+
+    }
+}

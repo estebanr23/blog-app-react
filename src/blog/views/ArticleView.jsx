@@ -1,8 +1,8 @@
 
-export const ArticleView = () => {
+export const ArticleView = ({ article }) => {
   return (
     <div className="px-8 md:px-12 lg:max-w-5xl 2xl:max-w-6xl m-auto">
-      <h1 className="text-center text-white text-4xl mb-4">Titulo de Articulo</h1>
+      <h1 className="text-center text-white text-4xl mb-4">{ article.title }</h1>
       <div>
         <img src="src/assets/image-1.jpg" className="block" alt="Imagen de Articulo" />
       </div>

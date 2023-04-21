@@ -1,16 +1,17 @@
+import { useSelector } from 'react-redux';
 import { UserList, UserForm } from '../components'
 import { Layout } from '../layouts/layout'
 
 export const UserPage = () => {
-  const users = false;
+  const { activeAddUser } = useSelector( state => state.app );
+
   return (
     <Layout>
       {
-        (users)
+        (!activeAddUser)
           ? <UserList />
           : <UserForm />
       }
-      
     </Layout>
   )
 }

@@ -5,3 +5,4 @@ export * from './Footer';
 export * from './UserList';
 export * from './UserForm';
 export * from './Edit';
+export * from './Spinner';
