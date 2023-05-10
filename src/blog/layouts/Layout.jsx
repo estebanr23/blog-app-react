@@ -2,9 +2,7 @@ import { useSelector } from 'react-redux'
 import { Footer, Header, Sidebar} from '../components'
 
 export const Layout = ({ children }) => {
-
-  const { activeSidebar } = useSelector( state => state.app );
-
+  
   return (
    <div className="h-screen flex">
 

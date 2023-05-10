@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startLoadingUsers } from '../../store/blog/thunks';
+import { startDeleteUser, startEditUser, startLoadingUsers } from '../../store/blog/thunks';
 import { Spinner } from './Spinner';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +17,14 @@ export const UserList = () => {
     const onClickAddUser = ( event ) => {
         event.preventDefault();
         dispatch( showFormUser() );
+    }
+
+    const onEditUser = async(id) => {
+        dispatch( startEditUser(id) );
+    }
+
+    const onDeleteUser = (id) => {
+        dispatch( startDeleteUser(id) );
     }
     
   return (
@@ -51,8 +59,8 @@ export const UserList = () => {
                                                 <td className="border border-slate-600 pl-2 py-1 hidden md:table-cell">Informatica</td>
                                                 <td className="border border-slate-600 pl-2 py-1 hidden lg:table-cell">Administrador</td>
                                                 <td className="border border-slate-600 pl-2 py-1">
-                                                    <button className="p-2 rounded-lg bg-green-600 text-white hover:bg-green-400 w-10 mr-2">M</button>
-                                                    <button className="p-2 rounded-lg bg-red-600 text-white hover:bg-red-400 w-10">E</button>
+                                                    <button onClick={ () => onEditUser( user.id ) } className="p-2 rounded-lg bg-green-600 text-white hover:bg-green-400 w-10 mr-2">M</button>
+                                                    <button onClick={ () => onDeleteUser( user.id ) } className="p-2 rounded-lg bg-red-600 text-white hover:bg-red-400 w-10">E</button>
                                                 </td>
                                             </tr>
                                         )

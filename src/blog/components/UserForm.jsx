@@ -1,24 +1,24 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from '../../hooks'
 import { startRegister } from '../../store/auth';
-import { useNavigate } from 'react-router-dom';
 import { hiddeFormUser } from '../../store/app/appSlice';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faExclamation } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { startUpdateUser } from '../../store/blog/thunks';
 
-const initialForm = {
+/* const initialForm = {
     name: '',
     email: '',
     password: '',
     password_confirm: '',
     area: ''
-}
+} */
 export const UserForm = () => {
 
+    const { initialFormUser, actionFormUser } = useSelector( state => state.blog )
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const { name, email, password, password_confirm, area, onInputChange, onResetForm } = useForm(initialForm);
+    const { id, name, email, password, password_confirm, area, onInputChange, onResetForm } = useForm( initialFormUser );
     const [ messagePassword, setMessagePassword ] = useState('hidden');
 
     const onSubmit = (event) => {
@@ -30,8 +30,13 @@ export const UserForm = () => {
             return;
         }; 
 
-        dispatch( startRegister(name, email, password) ); // Falta enviar el area
-        navigate("/users");
+        if (actionFormUser === 'create') {
+            dispatch( startRegister(name, email, password) ); // Falta enviar el area
+        } else {
+            dispatch( startUpdateUser(id, name, email, password) );
+        }
+        
+        dispatch( hiddeFormUser() );
     }
 
     const onClickCancel = ( event ) => {
@@ -104,7 +109,12 @@ export const UserForm = () => {
 
             <div className="flex flex-col md:flex-row md:justify-center md:col-span-2">
                 <button onClick={ onClickCancel } className="p-2 rounded-lg bg-red-600 text-white hover:bg-red-400 px-10 py-2 inline-block mb-2 md:mb-0 md:mr-4">Cancelar</button>
-                <button type="submit" className="p-2 rounded-lg bg-green-600 text-white hover:bg-green-400 px-10 py-2 inline-block">Guardar</button>
+                {
+                    (actionFormUser === 'create')
+                    ? <button type="submit" className="p-2 rounded-lg bg-green-600 text-white hover:bg-green-400 px-10 py-2 inline-block">Guardar</button>
+                    : <button type="submit" className="p-2 rounded-lg bg-blue-600 text-white hover:bg-blue-400 px-10 py-2 inline-block">Actualizar</button>
+                }
+                
             </div>
   
         </form>

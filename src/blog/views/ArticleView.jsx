@@ -1,7 +1,21 @@
+import { useDispatch } from "react-redux";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { setArticle } from "../../store/blog/blogSlice";
 
 export const ArticleView = ({ article }) => {
+  const dispatch = useDispatch();
+
+  const handleBack = () => {
+    dispatch( setArticle() );
+  }
+
   return (
     <div className="px-8 md:px-12 lg:max-w-5xl 2xl:max-w-6xl m-auto">
+      <div className="text-start">
+        <button onClick={ handleBack } className="border rounded-lg border-red-600 text-red-600 hover:bg-red-600 hover:text-white py-1 px-4"><FontAwesomeIcon icon={ faArrowLeft } /> Atras</button>
+      </div>
+
       <h1 className="text-center text-white text-4xl mb-4">{ article.title }</h1>
       <div>
         <img src="src/assets/image-1.jpg" className="block" alt="Imagen de Articulo" />

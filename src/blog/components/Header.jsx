@@ -17,16 +17,23 @@ export const Header = () => {
     dispatch( startLogout() );
   }
 
+  const handleBack = () => {
+
+  }
+
   return (
     <header className="bg-gray-900 w-full flex justify-between p-4 text-white">
-        <button onClick={ toggleSidebar }>
+      <div className="flex">
+        <button onClick={ toggleSidebar } className="mr-2">
             <div className="flex flex-col justify-center gap-1 w-7 xl:hidden">
                 <span className="border border-white w-full"></span>
                 <span className="border border-white w-full"></span>
                 <span className="border border-white w-full"></span>
             </div>
         </button>
-        <button onClick={ handleLogout } className="hover:cursor-pointer underline hover:text-slate-600"><span className="mr-2">Cerrar Sesión</span><FontAwesomeIcon icon={ faCircleUser } /></button>
+        {/* <button onClick={ handleBack } className="border rounded-lg border-red-600 text-red-600 py-1 px-6">Atras</button> */}
+      </div>
+      <button onClick={ handleLogout } className="hover:cursor-pointer underline hover:text-slate-600"><span className="mr-2">Cerrar Sesión</span><FontAwesomeIcon icon={ faCircleUser } /></button>
     </header>
   )
 }

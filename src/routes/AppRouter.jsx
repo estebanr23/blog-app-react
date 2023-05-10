@@ -32,6 +32,7 @@ export const AppRouter = () => {
           : (
             <>
               <Route path='/home' element={ <HomePage /> } />
+              <Route path='/home/:id' element={ <HomePage /> } />
               <Route path='/edit' element={ <EditPage /> } />
               <Route path='/users' element={ <UserPage /> } />
               <Route path='/*' element={ <Navigate to="/home" /> } />

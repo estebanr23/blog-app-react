@@ -1,4 +1,6 @@
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import { useForm } from '../../hooks';
 import { startLogin } from '../../store/auth';
 
@@ -9,12 +11,21 @@ const initialForm = {
 export const LoginPage = () => {
 
   const dispatch = useDispatch();
+  const { errorMessage } = useSelector( state => state.auth );
   const { email, password, onInputChange } = useForm(initialForm);
 
   const onSubmit = ( event ) => {
     event.preventDefault();
     dispatch( startLogin(email, password) );
   }
+
+  useEffect(() => {
+    if (errorMessage !== undefined) {
+      console.log(errorMessage)
+      Swal.fire('Error en la autenticacion', errorMessage, 'error');
+    }
+  }, [errorMessage])
+  
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-800">
