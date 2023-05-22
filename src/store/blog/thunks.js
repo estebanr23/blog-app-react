@@ -13,10 +13,11 @@ export const startLoadingUsers = () => {
     }
 }
 
+// Articulos por area
 export const startLoadingArticles = (id = 1) => {
     return async( dispatch ) => {
         dispatch( onIsLoading() );
-        const { data: response } = await blogApi.get(`/articles/${ id }`); // Articulos del area
+        const { data: response } = await blogApi.get(`/articles/area/${ id }`);
         const articles = response.data;
         console.log(articles);
         console.log(id)
@@ -56,5 +57,13 @@ export const startLoadingAreas = () => {
         const areas = response.data;
 
         dispatch( onLoadingAreas( areas ) );
+    }   
+}
+
+export const startSaveArticle = () => {
+    return async( dispatch ) => {
+        const { data: response } = await blogApi.post('/articles');
+        const areas = response.data;
+
     }   
 }

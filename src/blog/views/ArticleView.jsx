@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import parse from 'html-react-parser';
 import { setArticle } from "../../store/blog/blogSlice";
 
 export const ArticleView = ({ article }) => {
@@ -22,7 +23,7 @@ export const ArticleView = ({ article }) => {
       </div>
 
       <div className="text-white text-justify mt-6">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, labore! Veniam quisquam veritatis 
+            {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, labore! Veniam quisquam veritatis 
               omnis quo non, dicta illo. Neque obcaecati vero ipsa laudantium corrupti itaque, fugiat tenetur 
               laborum repellendus ipsam?
             </p>
@@ -31,7 +32,10 @@ export const ArticleView = ({ article }) => {
             Cumque, fugit doloremque! Omnis recusandae cum laborum sed voluptas dolores cupiditate debitis eos, vitae suscipit quasi harum magni sit beatae fugit voluptates aspernatur eaque nobis dicta accusamus qui animi non.
             Hic sapiente officiis ducimus nihil ut sequi, eaque nostrum similique commodi omnis tempora culpa excepturi animi accusantium laudantium temporibus dolores cum voluptate dolore perspiciatis. Cumque voluptatem quos dolorem sed odit.
             Fuga voluptate unde sed! Asperiores ratione non animi hic! Ut minus maiores alias? Ratione officiis nisi cupiditate similique optio quia non, architecto sit assumenda iste enim inventore consectetur, corrupti atque.
-            </p>
+            </p> */}
+            {
+              parse(article.content)
+            }
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { startLoadingAreas } from '../../store/blog/thunks';
+import { startLoadingAreas, startLoadingArticles } from '../../store/blog/thunks';
 import { faBook, faCar, faDatabase, faGear, faKey, faTimes, faUser, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch, useSelector } from 'react-redux'
@@ -20,6 +20,10 @@ export const Sidebar = () => {
     const handleSidebar = () => {
         return (activeSidebar) ? 'absolute block' : 'hidden fixed';
     }
+
+    const handleArticles = (id) => {
+        startLoadingArticles(id);
+    }
     
     useEffect(() => {
         dispatch( startLoadingAreas() );
@@ -36,14 +40,14 @@ export const Sidebar = () => {
         <ul>
             {
                 areas.map( area => (
-                    <Link to={`/home/${ area.id }`} key={ area.id } className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                    <Link to={`/home/${ area.id }`} key={ area.id } onClick={ handleArticles( area.id ) } className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
                         <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faUsers } /> { area.name }</li>
                     </Link>
                 ))
             }
 
-            <Link to={'/home'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
-                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faGear } /> Areas</li>
+            <Link to={'/edit'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
+                <li className="ml-5 list-none text-lg font-medium"><FontAwesomeIcon icon={ faGear } /> Nuevo Article</li>
             </Link>
 
             <Link to={'/users'} className="inline-block w-full py-4 border-b border-gray-200 hover:cursor-pointer hover:bg-slate-300">
